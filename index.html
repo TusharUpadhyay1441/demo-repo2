@@ -85,6 +85,45 @@
   margin-top: 10px;
 }
 
+/* ===== Reactive Background ===== */
+.parallax-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+}
+
+.layer1 {
+  background: radial-gradient(circle, #00ffea33 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.4;
+}
+
+.layer2 {
+  background: radial-gradient(circle, #00ffea22 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.6;
+}
+
+.layer3 {
+  background: radial-gradient(circle, #00ffea11 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.8;
+}
+
+
     /* Contact Section */
     #contact { background: linear-gradient(135deg,#111111,#0d0d0d); }
     #contact h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 20px; }
@@ -98,6 +137,12 @@
   </style>
 </head>
 <body>
+<!-- Parallax Background -->
+<div class="parallax-container">
+  <div class="parallax-layer layer1"></div>
+  <div class="parallax-layer layer2"></div>
+  <div class="parallax-layer layer3"></div>
+</div>
 
   <!-- Header -->
 <header>
@@ -185,5 +230,20 @@
       mirror: true
     });
   </script>
+  <script>
+  // Reactive Parallax Movement
+  const layers = document.querySelectorAll('.parallax-layer');
+
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 50;
+    const y = (e.clientY / window.innerHeight - 0.5) * 50;
+
+    layers.forEach((layer, index) => {
+      const speed = (index + 1) * 5; // different speed for each layer
+      layer.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
+    });
+  });
+</script>
+
 </body>
 </html>

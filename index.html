@@ -134,6 +134,32 @@
 
     /* Animations */
     [data-aos] { opacity: 0; transition-property: transform, opacity; }
+    .parallax-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* behind all content */
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+  pointer-events: none; /* allow clicks through layers */
+  opacity: 0.6;
+}
+
+.layer1 { background: radial-gradient(circle at 20% 30%, #00ffea, transparent 70%); }
+.layer2 { background: radial-gradient(circle at 70% 70%, #ff00ff, transparent 70%); }
+.layer3 { background: radial-gradient(circle at 50% 50%, #ffff00, transparent 70%); }
   </style>
 </head>
 <body>
@@ -241,6 +267,22 @@
     layers.forEach((layer, index) => {
       const speed = (index + 1) * 5; // different speed for each layer
       layer.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
+    });
+  });
+</script>
+<script>
+  const layers = document.querySelectorAll('.parallax-layer');
+
+  document.addEventListener('mousemove', (e) => {
+    const x = e.clientX / window.innerWidth - 0.5;
+    const y = e.clientY / window.innerHeight - 0.5;
+
+    layers.forEach((layer, index) => {
+      const speed = (index + 1) * 10; // adjust speed of layers
+      const xOffset = x * speed;
+      const yOffset = y * speed;
+
+      layer.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
     });
   });
 </script>

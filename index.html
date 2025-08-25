@@ -159,40 +159,17 @@
       color: #ccc;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
-    /* ===== Fade-in Animation ===== */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
 
-section {
-  opacity: 0; /* start hidden */
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 0.3s; /* you can adjust delay */
-}
-
-/* Stagger animations for child elements */
-section h1,
-section h2,
-section p,
-.skills-grid {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-}
-
-#home h1 { animation-delay: 0.2s; }
-#home h2 { animation-delay: 0.5s; }
-#home p { animation-delay: 0.8s; }
-
-#about h2 { animation-delay: 0.2s; }
-#about p { animation-delay: 0.5s; }
-
-.skills-heading { animation-delay: 0.2s; }
-.skills-grid { animation-delay: 0.5s; }
-
-#contact h2 { animation-delay: 0.2s; }
-#contact p { animation-delay: 0.5s; }
-
+    /* ===== Fade-in on Scroll ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -212,20 +189,20 @@ section p,
   </header>
 
   <!-- Home Section -->
-  <section id="home">
+  <section id="home" class="fade-in">
     <h1>Tushar Upadhyay</h1>
     <h2>DevOps Enthusiast · Cloud Learner</h2>
     <p>Building scalable, automated, and reliable cloud solutions.</p>
   </section>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>About Me</h2>
     <p>Hello! I'm Tushar Upadhyay, a passionate DevOps engineer and cloud enthusiast. I specialize in automating infrastructure, deploying scalable cloud solutions, and optimizing workflows using modern DevOps tools. I'm constantly learning to deliver high-quality solutions.</p>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="skills-section">
+  <section id="skills" class="skills-section fade-in">
     <h2 class="skills-heading">Skills</h2>
     <div class="skills-grid">
       <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS"><span>AWS</span></div>
@@ -240,7 +217,7 @@ section p,
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Contact</h2>
     <p>You can reach me via email at <strong>tushar@example.com</strong>. Let's connect!</p>
   </section>
@@ -260,12 +237,8 @@ section p,
             "density": { "enable": true, "value_area": 800 }
           },
           "color": { "value": "#fff" },
-          "shape": {
-            "type": "circle",
-            "stroke": { "width": 0, "color": "#000000" },
-            "polygon": { "nb_sides": 5 }
-          },
-          "opacity": { "value": 0.5, "random": false },
+          "shape": { "type": "circle" },
+          "opacity": { "value": 0.5 },
           "size": { "value": 3, "random": true },
           "line_linked": {
             "enable": true,
@@ -277,30 +250,32 @@ section p,
           "move": {
             "enable": true,
             "speed": 2,
-            "direction": "none",
-            "random": false,
-            "straight": false,
             "out_mode": "out"
           }
         },
         "interactivity": {
-          "detect_on": "canvas",
           "events": {
             "onhover": { "enable": true, "mode": "repulse" },
             "onclick": { "enable": true, "mode": "push" },
             "resize": true
-          },
-          "modes": {
-            "grab": { "distance": 400, "line_linked": { "opacity": 1 } },
-            "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
-            "repulse": { "distance": 100, "duration": 0.4 },
-            "push": { "particles_nb": 4 },
-            "remove": { "particles_nb": 2 }
           }
         },
         "retina_detect": true
       }
     );
+
+    // ===== Fade-in on Scroll =====
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 </body>
 </html>

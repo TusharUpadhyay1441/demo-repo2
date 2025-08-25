@@ -38,30 +38,45 @@
 
 /* Skills Section Heading */
 #skills h2 {
-  color: #00ffea;       /* Heading stays teal */
+  color: #00ffea;      /* Heading stays teal */
   font-size: 2.5rem;
   margin-bottom: 40px;
-  font-weight: 600;
 }
 
-.skill-item span {
-  color: #ffffff;       /* Labels stay white */
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-top: 10px;     /* Adds spacing between icon and label */
-  transition: color 0.3s ease;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 per row */
+  gap: 30px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 
 .skill-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
   transition: transform 0.3s ease, filter 0.3s ease, drop-shadow 0.3s ease;
 }
 
 .skill-item:hover img {
   transform: scale(1.2);
   filter: none;
-  drop-shadow: 0 0 10px #00ffea
-              0 0 20px #00ffea50;
+  drop-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea50;
 }
+
+/* Labels stay white always */
+.skill-item span {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 10px; /* space between icon and label */
+}
+
 
 /* Ensure label color doesn’t change on hover */
 .skill-item:hover span {

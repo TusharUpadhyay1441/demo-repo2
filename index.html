@@ -37,8 +37,6 @@
 
 
 /* Skills Section Heading */
-<style>
-/* Skills Section */
 .skills-section {
   padding: 60px 20px;
   background-color: #111;
@@ -46,15 +44,15 @@
 }
 
 .skills-heading {
-  font-size: 2.5rem; /* bigger font */
+  font-size: 2.2rem;
   font-weight: 700;
   color: #00ffea;
-  margin-bottom: 50px; /* more space from icons */
+  margin-bottom: 40px;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* responsive 4 per row */
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   justify-items: center;
   align-items: center;
@@ -65,34 +63,27 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .skill-item img {
   width: 60px;
   height: 60px;
   margin-bottom: 10px;
-  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, drop-shadow 0.3s ease;
 }
 
 .skill-item:hover img {
   transform: scale(1.2);
-  filter: drop-shadow(0 0 10px #00ffea) drop-shadow(0 0 20px #00ffea);
+  drop-shadow: 0 0 15px #00ffea, 0 0 25px #00ffea50; /* glow effect */
 }
 
 .skill-item span {
-  color: #ffffff; /* stays white */
+  color: #ffffff;
   font-size: 1.1rem;
   font-weight: 500;
   margin-top: 10px;
-  transition: color 0.3s ease;
 }
-
-.skill-item:hover span {
-  color: #ffffff; /* ensures text stays white on hover */
-}
-</style>
-
 
     /* Contact Section */
     #contact { background: linear-gradient(135deg,#111111,#0d0d0d); }

@@ -35,13 +35,38 @@
     #about h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 20px; }
     #about p { max-width: 700px; color: #ccc; line-height: 1.6; }
 
-    /* Skills Section */
-    #skills { background: linear-gradient(135deg,#0d0d0d,#1a1a1a); }
-    #skills h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 40px; }
-    .skills-grid { display: grid; grid-template-columns: repeat(4, 150px); gap: 30px; justify-content: center; }
-    .skill-item { display: flex; flex-direction: column; align-items: center; transition: transform 0.3s, color 0.3s; color: #fff; cursor: pointer; }
-    .skill-item img { width: 60px; height: 60px; margin-bottom: 10px; }
-    .skill-item:hover { color: #00ffea; transform: scale(1.1); }
+    /* Skills Section CSS tweaks */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  justify-items: start;  /* Keeps items left-aligned, not centered */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
+  color: #fff;
+  cursor: pointer;
+}
+
+.skill-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.skill-item:hover {
+  color: #00ffea;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ffea;
+  border-radius: 10px;
+  filter: brightness(1.2);
+}
+
 
     /* Contact Section */
     #contact { background: linear-gradient(135deg,#111111,#0d0d0d); }
@@ -83,7 +108,7 @@
     <p>Hello! I'm Tushar Upadhyay, a passionate DevOps engineer and cloud enthusiast. I specialize in automating infrastructure, deploying scalable cloud solutions, and optimizing workflows using modern DevOps tools like AWS, Terraform, Ansible, Docker, Jenkins, and Git. I'm constantly learning and exploring new technologies to deliver high-quality solutions and improve processes.</p>
   </section>
 
-<!-- Skills -->
+<!-- Skills Section -->
 <section id="skills" data-aos="fade-up">
   <h2>Skills</h2>
   <div class="skills-grid">
@@ -100,7 +125,7 @@
       <span>Ansible</span>
     </div>
     <div class="skill-item">
-      <img src="ttps://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
       <span>Docker</span>
     </div>
     <div class="skill-item">
@@ -111,7 +136,6 @@
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
       <span>Git</span>
     </div>
-    <!-- New Skills with jsDelivr icons -->
     <div class="skill-item">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
       <span>Kubernetes</span>
@@ -122,7 +146,6 @@
     </div>
   </div>
 </section>
-
 
 
   <!-- Contact -->

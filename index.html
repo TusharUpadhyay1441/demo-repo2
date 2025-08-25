@@ -19,7 +19,7 @@
 
     body {
       font-family: 'Roboto', sans-serif;
-      color: #000;
+      color: #fff;
       position: relative;
       overflow-x: hidden;
     }
@@ -32,7 +32,7 @@
       top: 0;
       left: 0;
       z-index: -1;
-      background: #fff; /* fallback background */
+      background: linear-gradient(135deg, #994ECC, #3E187A); /* purple gradient */
     }
 
     /* ===== Header ===== */
@@ -50,10 +50,10 @@
     header h1 {
       font-size: 1.8rem;
       font-weight: 700;
-      color: #000;
+      color: #fff;
     }
     nav a {
-      color: #000;
+      color: #fff;
       margin-left: 20px;
       text-decoration: none;
       font-weight: 500;
@@ -88,7 +88,7 @@
     }
     #home p {
       font-size: 1.3rem;
-      color: #333;
+      color: #ddd;
     }
 
     /* About Section */
@@ -98,7 +98,7 @@
     }
     #about p {
       max-width: 700px;
-      color: #333;
+      color: #ddd;
       line-height: 1.6;
     }
 
@@ -136,7 +136,7 @@
       transform: scale(1.2);
     }
     .skill-item span {
-      color: #000;
+      color: #fff;
       font-size: 1.1rem;
       font-weight: 500;
       margin-top: 10px;
@@ -148,7 +148,7 @@
       margin-bottom: 20px;
     }
     #contact p {
-      color: #333;
+      color: #ddd;
       font-size: 1.2rem;
     }
 
@@ -156,8 +156,8 @@
     footer {
       padding: 20px;
       text-align: center;
-      color: #555;
-      border-top: 1px solid #ccc;
+      color: #ccc;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
@@ -168,7 +168,7 @@
 
   <!-- Header -->
   <header>
-    <h1><a href="#home" style="color: #000; text-decoration: none;">My Portfolio</a></h1>
+    <h1><a href="#home" style="color: #fff; text-decoration: none;">My Portfolio</a></h1>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About Me</a>
@@ -223,31 +223,20 @@
         "particles": {
           "number": {
             "value": 80,
-            "density": {
-              "enable": true,
-              "value_area": 800
-            }
+            "density": { "enable": true, "value_area": 800 }
           },
-          "color": { "value": "#00aaff" },
+          "color": { "value": "#fff" },
           "shape": {
             "type": "circle",
             "stroke": { "width": 0, "color": "#000000" },
             "polygon": { "nb_sides": 5 }
           },
-          "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false }
-          },
-          "size": {
-            "value": 3,
-            "random": true,
-            "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
-          },
+          "opacity": { "value": 0.5, "random": false },
+          "size": { "value": 3, "random": true },
           "line_linked": {
             "enable": true,
             "distance": 150,
-            "color": "#00aaff",
+            "color": "#fff",
             "opacity": 0.4,
             "width": 1
           },
@@ -257,9 +246,7 @@
             "direction": "none",
             "random": false,
             "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+            "out_mode": "out"
           }
         },
         "interactivity": {

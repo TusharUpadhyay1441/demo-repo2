@@ -37,19 +37,50 @@
 
 
 /* Skills Section Heading */
+#skills {
+  padding: 60px 20px;
+  background-color: #0a0a0a;
+  text-align: center;
+}
+
 #skills h2 {
-  color: #00ffea;       /* keep color */
+  color: #ffffff;
   font-size: 2.5rem;    /* bigger heading */
-  margin-bottom: 30px;  /* space between heading and grid */
-  text-align: center;   /* center heading */
+  margin-bottom: 40px;  /* space below heading */
+  font-weight: 600;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  gap: 30px;             /* spacing between skills */
-  justify-items: center;  /* center each skill in its cell */
-  align-items: center;    /* vertical alignment */
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 30px 20px;       /* row and column gaps */
+  justify-content: center; /* center grid horizontally */
+  align-items: center;     /* vertical align */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px;
+}
+
+.skill-item span {
+  color: #00ffea;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Hover glow effect */
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea50;
 }
 
 
@@ -94,11 +125,11 @@
   </section>
 
 <!-- Skills Section -->
-<section id="skills" data-aos="fade-up">
-  <h2>Skills</h2>
+<section id="skills">
+  <h2>My Skills</h2>
   <div class="skills-grid">
     <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS">
       <span>AWS</span>
     </div>
     <div class="skill-item">
@@ -126,11 +157,12 @@
       <span>Kubernetes</span>
     </div>
     <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-plain.svg" alt="Grafana">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" alt="Grafana">
       <span>Grafana</span>
     </div>
   </div>
 </section>
+
 
 
   <!-- Contact -->

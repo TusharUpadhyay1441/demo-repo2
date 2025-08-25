@@ -9,7 +9,7 @@
   <style>
     /* ===== Base Styles ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background-color: #0d0d0d; color: #fff; scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background-color: #0d0d0d; color: #fff; scroll-behavior: smooth; overflow-x: hidden; }
 
     /* ===== Header ===== */
     header { position: fixed; top: 0; width: 100%; background-color: rgba(0,0,0,0.8); z-index: 100; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; }
@@ -19,110 +19,26 @@
 
     /* ===== Sections ===== */
     section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 50px 20px; text-align: center; }
-    
+
     /* Home Section */
     #home { background: linear-gradient(135deg,#0d0d0d,#111111); }
-   #home h1 {
-  font-size: 4rem;   /* bigger font size */
-  color: #ffffff;    /* white color */
-  margin-bottom: 10px;
-}
+    #home h1 { font-size: 4rem; color: #ffffff; margin-bottom: 10px; }
     #home h2 { font-size: 2.8rem; color: #00ffea; margin-bottom: 20px; }
     #home p { font-size: 1.3rem; color: #aaa; }
-    
+
     /* About Section */
     #about { background: linear-gradient(135deg,#111111,#1a1a1a); }
     #about h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 20px; }
     #about p { max-width: 700px; color: #ccc; line-height: 1.6; }
 
-
-/* Skills Section Heading */
-.skills-section {
-  padding: 60px 20px;
-  background-color: #111;
-  text-align: center;
-}
-
-.skills-heading {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #00ffea;
-  margin-bottom: 40px;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  justify-items: center;
-  align-items: center;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.skill-item img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease, drop-shadow 0.3s ease;
-}
-
-.skill-item:hover img {
-  transform: scale(1.2);
-  drop-shadow: 0 0 15px #00ffea, 0 0 25px #00ffea50; /* glow effect */
-}
-
-.skill-item span {
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-top: 10px;
-}
-
-/* ===== Reactive Background ===== */
-.parallax-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.parallax-layer {
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  will-change: transform;
-}
-
-.layer1 {
-  background: radial-gradient(circle, #00ffea33 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.4;
-}
-
-.layer2 {
-  background: radial-gradient(circle, #00ffea22 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0.6;
-}
-
-.layer3 {
-  background: radial-gradient(circle, #00ffea11 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.8;
-}
-
+    /* Skills Section */
+    .skills-section { padding: 60px 20px; background-color: #111; text-align: center; }
+    .skills-heading { font-size: 2.2rem; font-weight: 700; color: #00ffea; margin-bottom: 40px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; justify-items: center; align-items: center; }
+    .skill-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: transform 0.3s ease; }
+    .skill-item img { width: 60px; height: 60px; margin-bottom: 10px; transition: transform 0.3s ease, drop-shadow 0.3s ease; }
+    .skill-item:hover img { transform: scale(1.2); filter: drop-shadow(0 0 15px #00ffea) drop-shadow(0 0 25px #00ffea50); }
+    .skill-item span { color: #ffffff; font-size: 1.1rem; font-weight: 500; margin-top: 10px; }
 
     /* Contact Section */
     #contact { background: linear-gradient(135deg,#111111,#0d0d0d); }
@@ -132,119 +48,82 @@
     /* Footer */
     footer { padding: 20px; text-align: center; background-color: #111; color: #888; }
 
+    /* ===== Parallax Background ===== */
+    .parallax-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
+    .parallax-layer { position: absolute; width: 200%; height: 200%; top: -50%; left: -50%; background-repeat: no-repeat; background-size: cover; will-change: transform; pointer-events: none; opacity: 0.6; }
+    .layer1 { background: radial-gradient(circle at 20% 30%, #00ffea, transparent 70%); }
+    .layer2 { background: radial-gradient(circle at 70% 70%, #ff00ff, transparent 70%); }
+    .layer3 { background: radial-gradient(circle at 50% 50%, #ffff00, transparent 70%); }
+
     /* Animations */
     [data-aos] { opacity: 0; transition-property: transform, opacity; }
-    .parallax-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1; /* behind all content */
-}
 
-.parallax-layer {
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  will-change: transform;
-  pointer-events: none; /* allow clicks through layers */
-  opacity: 0.6;
-}
-
-.layer1 { background: radial-gradient(circle at 20% 30%, #00ffea, transparent 70%); }
-.layer2 { background: radial-gradient(circle at 70% 70%, #ff00ff, transparent 70%); }
-.layer3 { background: radial-gradient(circle at 50% 50%, #ffff00, transparent 70%); }
+    /* Responsive */
+    @media(max-width: 768px) {
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      #home h1 { font-size: 3rem; }
+      #home h2 { font-size: 2rem; }
+    }
   </style>
 </head>
 <body>
-<!-- Parallax Background -->
-<div class="parallax-container">
-  <div class="parallax-layer layer1"></div>
-  <div class="parallax-layer layer2"></div>
-  <div class="parallax-layer layer3"></div>
-</div>
+
+  <!-- Parallax Background -->
+  <div class="parallax-container">
+    <div class="parallax-layer layer1"></div>
+    <div class="parallax-layer layer2"></div>
+    <div class="parallax-layer layer3"></div>
+  </div>
 
   <!-- Header -->
-<header>
-  <h1><a href="#home" style="color: #fff; text-decoration: none;">My Portfolio</a></h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <header>
+    <h1><a href="#home" style="color: #fff; text-decoration: none;">My Portfolio</a></h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Home -->
-<section id="home" data-aos="fade-up">
-  <h1 data-aos="fade-down" data-aos-duration="1500" data-aos-easing="ease-out-cubic" style="color: #fff; font-size: 4rem;">
-    Tushar Upadhyay
-  </h1>
-  <h2>DevOps Enthusiast · Cloud Learner · Automation Explorer</h2>
-  <p>Building scalable, automated, and reliable cloud solutions.</p>
-</section>
+  <!-- Home Section -->
+  <section id="home" data-aos="fade-up">
+    <h1 data-aos="fade-down" data-aos-duration="1500" data-aos-easing="ease-out-cubic">
+      Tushar Upadhyay
+    </h1>
+    <h2>DevOps Enthusiast · Cloud Learner · Automation Explorer</h2>
+    <p>Building scalable, automated, and reliable cloud solutions.</p>
+  </section>
 
-  <!-- About Me -->
+  <!-- About Section -->
   <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p>Hello! I'm Tushar Upadhyay, a passionate DevOps engineer and cloud enthusiast. I specialize in automating infrastructure, deploying scalable cloud solutions, and optimizing workflows using modern DevOps tools like AWS, Terraform, Ansible, Docker, Jenkins, and Git. I'm constantly learning and exploring new technologies to deliver high-quality solutions and improve processes.</p>
   </section>
 
-<!-- Skills Section -->
-<section id="skills" class="skills-section">
-  <h2 class="skills-heading">Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
-      <span>AWS</span>
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <h2 class="skills-heading">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS"><span>AWS</span></div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform"><span>Terraform</span></div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible"><span>Ansible</span></div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"><span>Docker</span></div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins"><span>Jenkins</span></div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"><span>Kubernetes</span></div>
+      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" alt="Grafana"><span>Grafana</span></div>
     </div>
-    <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
-      <span>Terraform</span>
-    </div>
-    <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible">
-      <span>Ansible</span>
-    </div>
-    <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-      <span>Docker</span>
-    </div>
-    <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
-      <span>Jenkins</span>
-    </div>
-    <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-      <span>Git</span>
-    </div>
-    <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
-      <span>Kubernetes</span>
-    </div>
-    <div class="skill-item">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" alt="Grafana">
-      <span>Grafana</span>
-    </div>
-  </div>
-</section>
+  </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section id="contact" data-aos="fade-up">
     <h2>Contact</h2>
     <p>You can reach me via email at <strong>tushar@example.com</strong>. Let's connect and build something amazing together!</p>
   </section>
 
   <!-- Footer -->
-  <footer>
-    &copy; 2025 Tushar Upadhyay
-  </footer>
+  <footer>&copy; 2025 Tushar Upadhyay</footer>
 
   <!-- AOS Animation Library -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -255,37 +134,17 @@
       once: false,
       mirror: true
     });
+
+    // Reactive Parallax Movement
+    const layers = document.querySelectorAll('.parallax-layer');
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 50;
+      const y = (e.clientY / window.innerHeight - 0.5) * 50;
+      layers.forEach((layer, index) => {
+        const speed = (index + 1) * 5; // different speed per layer
+        layer.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
+      });
+    });
   </script>
-  <script>
-  // Reactive Parallax Movement
-  const layers = document.querySelectorAll('.parallax-layer');
-
-  document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 50;
-    const y = (e.clientY / window.innerHeight - 0.5) * 50;
-
-    layers.forEach((layer, index) => {
-      const speed = (index + 1) * 5; // different speed for each layer
-      layer.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
-    });
-  });
-</script>
-<script>
-  const layers = document.querySelectorAll('.parallax-layer');
-
-  document.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth - 0.5;
-    const y = e.clientY / window.innerHeight - 0.5;
-
-    layers.forEach((layer, index) => {
-      const speed = (index + 1) * 10; // adjust speed of layers
-      const xOffset = x * speed;
-      const yOffset = y * speed;
-
-      layer.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-    });
-  });
-</script>
-
 </body>
 </html>

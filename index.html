@@ -14,17 +14,19 @@
     /* ===== Header ===== */
     header { position: fixed; top: 0; width: 100%; background-color: rgba(0,0,0,0.8); z-index: 100; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; }
     header h1 { color: #00ffea; font-size: 1.8rem; font-weight: 700; }
-    nav a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    nav a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: 500; position: relative; transition: 0.3s; }
     nav a:hover { color: #00ffea; }
+    nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -3px; left: 0; background-color: #00ffea; transition: width 0.3s; }
+    nav a:hover::after, nav a.active::after { width: 100%; }
 
     /* ===== Sections ===== */
     section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 50px 20px; text-align: center; }
-    
+
     /* Home Section */
     #home { background: linear-gradient(135deg,#0d0d0d,#111111); }
     #home h2 { font-size: 2.8rem; color: #00ffea; margin-bottom: 20px; }
     #home p { font-size: 1.3rem; color: #aaa; }
-    
+
     /* About Section */
     #about { background: linear-gradient(135deg,#111111,#1a1a1a); }
     #about h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 20px; }
@@ -33,18 +35,21 @@
     /* Skills Section */
     #skills { background: linear-gradient(135deg,#0d0d0d,#1a1a1a); }
     #skills h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 40px; }
-    .skills-grid { display: grid; grid-template-columns: repeat(4, 150px); gap: 30px; justify-content: center; }
-    .skill-item { display: flex; flex-direction: column; align-items: center; transition: transform 0.3s, color 0.3s; color: #fff; cursor: pointer; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 30px; justify-content: center; }
+    .skill-item { display: flex; flex-direction: column; align-items: center; transition: transform 0.3s, color 0.3s, box-shadow 0.3s; color: #fff; cursor: pointer; }
     .skill-item img { width: 60px; height: 60px; margin-bottom: 10px; }
-    .skill-item:hover { color: #00ffea; transform: scale(1.1); }
+    .skill-item:hover { color: #00ffea; transform: scale(1.1) rotate(5deg); box-shadow: 0 5px 20px rgba(0,255,234,0.3); }
 
     /* Contact Section */
     #contact { background: linear-gradient(135deg,#111111,#0d0d0d); }
     #contact h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 20px; }
     #contact p { color: #ccc; font-size: 1.2rem; }
+    #contact a { color: #00ffea; text-decoration: none; }
 
     /* Footer */
     footer { padding: 20px; text-align: center; background-color: #111; color: #888; }
+    footer img { margin: 0 10px; vertical-align: middle; transition: transform 0.3s; }
+    footer img:hover { transform: scale(1.2); }
 
     /* Animations */
     [data-aos] { opacity: 0; transition-property: transform, opacity; }
@@ -70,13 +75,13 @@
   </section>
 
   <!-- About Me -->
-  <section id="about" data-aos="fade-up">
+  <section id="about" data-aos="fade-right">
     <h2>About Me</h2>
     <p>Hello! I'm Tushar Upadhyay, a passionate DevOps engineer and cloud enthusiast. I specialize in automating infrastructure, deploying scalable cloud solutions, and optimizing workflows using modern DevOps tools like AWS, Terraform, Ansible, Docker, Jenkins, and Git. I'm constantly learning and exploring new technologies to deliver high-quality solutions and improve processes.</p>
   </section>
 
   <!-- Skills -->
-  <section id="skills" data-aos="fade-up">
+  <section id="skills" data-aos="zoom-in">
     <h2>Skills</h2>
     <div class="skills-grid">
       <div class="skill-item">
@@ -107,24 +112,43 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" data-aos="fade-up">
+  <section id="contact" data-aos="fade-left">
     <h2>Contact</h2>
-    <p>You can reach me via email at <strong>tushar@example.com</strong>. Let's connect and build something amazing together!</p>
+    <p>You can reach me via email at <strong><a href="mailto:tushar@example.com">tushar@example.com</a></strong>. Let's connect and build something amazing together!</p>
   </section>
 
   <!-- Footer -->
   <footer>
     &copy; 2025 Tushar Upadhyay
+    <div style="margin-top:10px;">
+      <a href="https://github.com/yourusername" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="25">
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25">
+      </a>
+    </div>
   </footer>
 
   <!-- AOS Animation Library -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: false,
-      mirror: true
+    AOS.init({ duration: 1000, easing: 'ease-in-out', once: false, mirror: true });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => link.classList.remove('active'));
+      navLinks.forEach(link => {
+        if(link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
     });
   </script>
 </body>

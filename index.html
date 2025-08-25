@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tushar Upadhyay | DevOps Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    /* ===== Base Styles ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background-color: #0d0d0d; color: #fff; scroll-behavior: smooth; }
+
+    /* ===== Header ===== */
+    header { position: fixed; top: 0; width: 100%; background-color: rgba(0,0,0,0.8); z-index: 100; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #00ffea; font-size: 1.8rem; font-weight: 700; }
+    nav a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    nav a:hover { color: #00ffea; }
+
+    /* ===== Sections ===== */
+    section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 50px 20px; text-align: center; }
+    
+    /* Home Section */
+    #home { background: linear-gradient(135deg,#0d0d0d,#111111); }
+    #home h2 { font-size: 2.8rem; color: #00ffea; margin-bottom: 20px; }
+    #home p { font-size: 1.3rem; color: #aaa; }
+    
+    /* About Section */
+    #about { background: linear-gradient(135deg,#111111,#1a1a1a); }
+    #about h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 20px; }
+    #about p { max-width: 700px; color: #ccc; line-height: 1.6; }
+
+    /* Skills Section */
+    #skills { background: linear-gradient(135deg,#0d0d0d,#1a1a1a); }
+    #skills h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 40px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 150px); gap: 30px; justify-content: center; }
+    .skill-item { display: flex; flex-direction: column; align-items: center; transition: transform 0.3s, color 0.3s; color: #fff; cursor: pointer; }
+    .skill-item img { width: 60px; height: 60px; margin-bottom: 10px; }
+    .skill-item:hover { color: #00ffea; transform: scale(1.1); }
+
+    /* Contact Section */
+    #contact { background: linear-gradient(135deg,#111111,#0d0d0d); }
+    #contact h2 { color: #00ffea; font-size: 2.5rem; margin-bottom: 20px; }
+    #contact p { color: #ccc; font-size: 1.2rem; }
+
+    /* Footer */
+    footer { padding: 20px; text-align: center; background-color: #111; color: #888; }
+
+    /* Animations */
+    [data-aos] { opacity: 0; transition-property: transform, opacity; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Tushar Upadhyay</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section id="home" data-aos="fade-up">
+    <h2>DevOps Enthusiast · Cloud Learner · Automation Explorer</h2>
+    <p>Building scalable, automated, and reliable cloud solutions.</p>
+  </section>
+
+  <!-- About Me -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>Hello! I'm Tushar Upadhyay, a passionate DevOps engineer and cloud enthusiast. I specialize in automating infrastructure, deploying scalable cloud solutions, and optimizing workflows using modern DevOps tools like AWS, Terraform, Ansible, Docker, Jenkins, and Git. I'm constantly learning and exploring new technologies to deliver high-quality solutions and improve processes.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="AWS">
+        <span>AWS</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919832.png" alt="Terraform">
+        <span>Terraform</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Ansible">
+        <span>Ansible</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="Docker">
+        <span>Docker</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111288.png" alt="Jenkins">
+        <span>Jenkins</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111288.png" alt="Git">
+        <span>Git</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>You can reach me via email at <strong>tushar@example.com</strong>. Let's connect and build something amazing together!</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Tushar Upadhyay
+  </footer>
+
+  <!-- AOS Animation Library -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true
+    });
+  </script>
+</body>
+</html>

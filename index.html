@@ -38,12 +38,19 @@
 
 /* Skills Section Heading */
 #skills h2 {
-  color: #00ffea;       /* keep the color */
-  font-size: 2.5rem;    /* slightly bigger */
-  margin-bottom: 30px;  /* space between heading and icons */
-  text-align: center;   /* keep heading centered */
+  color: #00ffea;       /* keep color */
+  font-size: 2.5rem;    /* bigger heading */
+  margin-bottom: 30px;  /* space between heading and grid */
+  text-align: center;   /* center heading */
 }
 
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 30px;             /* spacing between skills */
+  justify-items: center;  /* center each skill in its cell */
+  align-items: center;    /* vertical alignment */
+}
 
 
     /* Contact Section */

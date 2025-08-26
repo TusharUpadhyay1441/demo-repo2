@@ -348,15 +348,78 @@
   </button>
 </div>
 
+<!-- Expand Button -->
+<div style="text-align:center; margin-top:20px;">
+  <button id="expandSkills" style="padding:10px 20px; font-size:16px; cursor:pointer; background:#994ECC; color:white; border:none; border-radius:5px;">Expand</button>
+</div>
+
 <!-- Skill Bars Container -->
 <div id="skillBarsContainer" style="display:none; text-align:center; margin-top:20px;">
-  <div class="skill-bar" style="width:300px; margin:10px auto; background:#ddd; border-radius:10px;">
-    <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+  
+  <!-- Skill 1 -->
+  <div style="margin:15px 0;">
+    <div style="color:white; margin-bottom:5px;">HTML</div>
+    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
+      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+    </div>
   </div>
-  <div class="skill-bar" style="width:300px; margin:10px auto; background:#ddd; border-radius:10px;">
-    <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+
+  <!-- Skill 2 -->
+  <div style="margin:15px 0;">
+    <div style="color:white; margin-bottom:5px;">CSS</div>
+    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
+      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+    </div>
   </div>
-  <!-- Add more skill bars as needed -->
+
+  <!-- Skill 3 -->
+  <div style="margin:15px 0;">
+    <div style="color:white; margin-bottom:5px;">JavaScript</div>
+    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
+      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+    </div>
+  </div>
+
+  <!-- Skill 4 -->
+  <div style="margin:15px 0;">
+    <div style="color:white; margin-bottom:5px;">AWS</div>
+    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
+      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+    </div>
+  </div>
+
+  <!-- Skill 5 -->
+  <div style="margin:15px 0;">
+    <div style="color:white; margin-bottom:5px;">Docker</div>
+    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
+      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+    </div>
+  </div>
+
+  <!-- Skill 6 -->
+  <div style="margin:15px 0;">
+    <div style="color:white; margin-bottom:5px;">Terraform</div>
+    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
+      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+    </div>
+  </div>
+
+  <!-- Skill 7 -->
+  <div style="margin:15px 0;">
+    <div style="color:white; margin-bottom:5px;">Kubernetes</div>
+    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
+      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+    </div>
+  </div>
+
+  <!-- Skill 8 -->
+  <div style="margin:15px 0;">
+    <div style="color:white; margin-bottom:5px;">Git</div>
+    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
+      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+    </div>
+  </div>
+
 </div>
 
 <!-- JS to animate bars -->
@@ -365,16 +428,17 @@ document.getElementById('expandSkills').addEventListener('click', function() {
   const container = document.getElementById('skillBarsContainer');
   container.style.display = 'block';
   const bars = container.querySelectorAll('.skill-level');
+  const levels = [90, 85, 80, 75, 70, 65, 75, 80]; // Set your skill levels here
   bars.forEach((bar, index) => {
     let width = 0;
-    const level = [90, 80, 70][index]; // Change to your skill levels
     const interval = setInterval(() => {
-      if (width >= level) clearInterval(interval);
+      if (width >= levels[index]) clearInterval(interval);
       else bar.style.width = width++ + '%';
     }, 10);
   });
 });
 </script>
+
 
 <section id="projects" style="padding:50px 0;">
   <div class="container" style="max-width:1200px; margin:auto; text-align:center; margin-bottom:1px;">

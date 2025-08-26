@@ -344,78 +344,77 @@
   </section>
 
 <!-- Expand Button -->
-<div style="text-align:center; margin-top:-10px;">
-  <button id="expandSkills" style="padding:10px 20px; font-size:16px; cursor:pointer; background:#994ECC; color:white; border:none; border-radius:5px;">Expand</button>
+<div style="text-align:center; margin-top:20px;">
+  <button id="expandSkills" 
+          style="padding:10px 20px; font-size:16px; cursor:pointer; background:#994ECC; color:white; border:none; border-radius:5px;">
+    Expand
+  </button>
 </div>
 
-<!-- Skill Bars Container -->
-<div id="skillBarsContainer" style="display:none; text-align:center; margin-top:20px;">
-  
-  <!-- Skill 1 -->
-  <div style="margin:15px 0;">
-    <div style="color:white; margin-bottom:5px;">HTML</div>
-    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
-      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+<!-- Skill Bars Container (initially hidden) -->
+<div id="skillBars" style="display:none; max-width:600px; margin:20px auto;">
+  <!-- Example Skill Bar -->
+  <div class="skill-bar-container">
+    <span class="skill-name">HTML</span>
+    <div class="skill-bar-bg">
+      <div class="skill-bar-fill" data-level="80"></div>
     </div>
   </div>
-
-  <!-- Skill 2 -->
-  <div style="margin:15px 0;">
-    <div style="color:white; margin-bottom:5px;">CSS</div>
-    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
-      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
+  <div class="skill-bar-container">
+    <span class="skill-name">CSS</span>
+    <div class="skill-bar-bg">
+      <div class="skill-bar-fill" data-level="75"></div>
     </div>
   </div>
-
-  <!-- Skill 3 -->
-  <div style="margin:15px 0;">
-    <div style="color:white; margin-bottom:5px;">JavaScript</div>
-    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
-      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
-    </div>
-  </div>
-
-  <!-- Skill 4 -->
-  <div style="margin:15px 0;">
-    <div style="color:white; margin-bottom:5px;">AWS</div>
-    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
-      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
-    </div>
-  </div>
-
-  <!-- Skill 5 -->
-  <div style="margin:15px 0;">
-    <div style="color:white; margin-bottom:5px;">Docker</div>
-    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
-      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
-    </div>
-  </div>
-
-  <!-- Skill 6 -->
-  <div style="margin:15px 0;">
-    <div style="color:white; margin-bottom:5px;">Terraform</div>
-    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
-      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
-    </div>
-  </div>
-
-  <!-- Skill 7 -->
-  <div style="margin:15px 0;">
-    <div style="color:white; margin-bottom:5px;">Kubernetes</div>
-    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
-      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
-    </div>
-  </div>
-
-  <!-- Skill 8 -->
-  <div style="margin:15px 0;">
-    <div style="color:white; margin-bottom:5px;">Git</div>
-    <div class="skill-bar" style="width:300px; margin:0 auto; background:#ddd; border-radius:10px;">
-      <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
-    </div>
-  </div>
-
+  <!-- Repeat 6 more skill bars for remaining skills -->
 </div>
+
+<style>
+.skill-bar-container {
+  margin: 15px 0;
+}
+.skill-name {
+  display:block;
+  margin-bottom:5px;
+  font-weight:bold;
+  text-align:left;
+}
+.skill-bar-bg {
+  width:100%;
+  height:20px;
+  background:#ddd;
+  border-radius:10px;
+  overflow:hidden;
+}
+.skill-bar-fill {
+  height:100%;
+  width:0;
+  background:#994ECC;
+  border-radius:10px;
+  transition: width 2s;
+}
+</style>
+
+<script>
+const btn = document.getElementById("expandSkills");
+const barsContainer = document.getElementById("skillBars");
+
+btn.addEventListener("click", () => {
+  if(barsContainer.style.display === "none"){
+    barsContainer.style.display = "block";
+
+    // Animate bars
+    const fills = document.querySelectorAll(".skill-bar-fill");
+    fills.forEach(fill => {
+      const level = fill.getAttribute("data-level");
+      setTimeout(() => { fill.style.width = level + "%"; }, 100);
+    });
+
+    // Disable button after expanding
+    btn.disabled = true;
+  }
+});
+</script>
 
 <!-- JS to animate bars -->
 <script>

@@ -178,9 +178,12 @@
   <!-- ===== Scroll Fade (auto-adds classes, no HTML edits) ===== -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const targets = ['#home', '#about', '#skills', '#contact']
-        .map(sel => document.querySelector(sel))
-        .filter(Boolean);
+      const targets = document.querySelectorAll(
+  '#home h1, #home h2, #home p, ' +
+  '#about h2, #about p, ' +
+  '#skills h2, #skills .skill-item, ' +
+  '#contact h2, #contact p'
+);
 
       // Add base reveal class
       targets.forEach(el => el.classList.add('reveal'));

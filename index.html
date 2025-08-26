@@ -66,16 +66,17 @@
   overflow: hidden;
 }
 
-.rotating-text span {
-  display: none;
+.rotating-text {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #fff; /* plain white */
+  color: #ffffff;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  text-align: center;
+  min-height: 30px; /* prevents layout shift */
 }
-
-.rotating-text span.active {
-  display: inline-block;
-  animation: fadeIn 1s ease-in-out;
+.rotating-text.show {
+  opacity: 1;
 }
 
 @keyframes fadeIn {
@@ -241,18 +242,18 @@
   const rotatingText = document.querySelector(".rotating-text");
 
   function updateText() {
-  rotatingText.classList.remove("show"); // fade out
-  setTimeout(() => {
-    rotatingText.innerHTML = `<span>${roles[index]}</span>`; // ✅ wrap in span
-    rotatingText.classList.add("show"); // fade in
-    index = (index + 1) % roles.length;
-  }, 500);
-}
-
+    rotatingText.classList.remove("show"); // fade out
+    setTimeout(() => {
+      rotatingText.textContent = roles[index];
+      rotatingText.classList.add("show"); // fade in
+      index = (index + 1) % roles.length;
+    }, 500); // wait half a second before showing next
+  }
 
   updateText(); // show first one immediately
   setInterval(updateText, 6000); // every 6s
 </script>
+
 
 
 <script>

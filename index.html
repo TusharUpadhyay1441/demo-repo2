@@ -311,6 +311,65 @@
     </div>
   </section>
 
+<section id="projects" style="padding: 80px 20px; background:#1a1a1a; color:white; text-align:center;">
+  <h2 style="font-size:3rem; margin-bottom:40px;">Projects</h2>
+
+  <!-- Swiper container -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+
+      <!-- Project 1 -->
+      <div class="swiper-slide" style="background:#2a2a2a; border-radius:15px; padding:30px; width:300px; margin:auto;">
+        <h3>CI/CD Automation Project</h3>
+        <p>Built upstream and downstream pipelines, automated builds and deployments using Jenkins.</p>
+        <p><strong>Technologies:</strong> Jenkins, Git, Docker, AWS</p>
+        <a href="https://github.com/tusharupadhyay/project1" target="_blank" style="color:#c54b8c; text-decoration:none; font-weight:bold;">View on GitHub</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="swiper-slide" style="background:#2a2a2a; border-radius:15px; padding:30px; width:300px; margin:auto;">
+        <h3>Cloud Deployment Project</h3>
+        <p>Deployed containerized applications on AWS ECS using automated CI/CD pipelines.</p>
+        <p><strong>Technologies:</strong> AWS ECS, Docker, Terraform</p>
+        <a href="https://github.com/tusharupadhyay/project2" target="_blank" style="color:#c54b8c; text-decoration:none; font-weight:bold;">View on GitHub</a>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="swiper-slide" style="background:#2a2a2a; border-radius:15px; padding:30px; width:300px; margin:auto;">
+        <h3>Monitoring & Alerts Project</h3>
+        <p>Implemented monitoring dashboards and automated alerting with Prometheus and Grafana.</p>
+        <p><strong>Technologies:</strong> Prometheus, Grafana, Slack, AWS</p>
+        <a href="https://github.com/tusharupadhyay/project3" target="_blank" style="color:#c54b8c; text-decoration:none; font-weight:bold;">View on GitHub</a>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="swiper-slide" style="background:#2a2a2a; border-radius:15px; padding:30px; width:300px; margin:auto;">
+        <h3>Infrastructure as Code Project</h3>
+        <p>Automated cloud infrastructure deployment using Terraform scripts and AWS resources.</p>
+        <p><strong>Technologies:</strong> Terraform, AWS, GitHub Actions</p>
+        <a href="https://github.com/tusharupadhyay/project4" target="_blank" style="color:#c54b8c; text-decoration:none; font-weight:bold;">View on GitHub</a>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="swiper-slide" style="background:#2a2a2a; border-radius:15px; padding:30px; width:300px; margin:auto;">
+        <h3>Containerized App Deployment</h3>
+        <p>Created Docker containers and deployed microservices architecture on Kubernetes cluster.</p>
+        <p><strong>Technologies:</strong> Docker, Kubernetes, AWS EKS</p>
+        <a href="https://github.com/tusharupadhyay/project5" target="_blank" style="color:#c54b8c; text-decoration:none; font-weight:bold;">View on GitHub</a>
+      </div>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+
 <!-- Contact Section -->
 <section id="contact" class="contact">
   <h2>Contact Me</h2>
@@ -444,6 +503,29 @@
   }
 
   window.onload = typeWriter;
+</script>
+
+<!-- Swiper JS CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 </script>
 
 </body>

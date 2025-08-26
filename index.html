@@ -66,25 +66,14 @@
   overflow: hidden;
 }
 
-.rotating-text {
-  font-size: 1.5rem;
-  margin-top: 10px;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  text-align: center;
-  min-height: 30px; /* prevents layout shift */
-  font-weight: bold;
-}
-
-/* Gradient color with a *soft* glow */
 .rotating-text span {
-  background: linear-gradient(90deg, #994ECC, #3E187A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* Subtle glow, not too strong */
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  display: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #c54b8c; /* Your color code */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); /* subtle glow */
 }
+
 
 .rotating-text.show {
   opacity: 1;

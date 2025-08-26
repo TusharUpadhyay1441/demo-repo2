@@ -131,6 +131,27 @@
   font-weight: bold;
 }
 
+/* Skills Icons */
+.skills-icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.skills-icons i {
+  font-size: 2.5rem;
+  color: #c54b8c;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.skills-icons i:hover {
+  transform: scale(1.2) rotate(5deg);
+  color: #fff;
+}
+
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .about-container {
@@ -213,6 +234,15 @@
     <div class="about-text">
       <h2>About Me</h2>
       <p>
+        <!-- Skills Icons -->
+<div class="skills-icons">
+  <i class="fab fa-aws" title="AWS"></i>
+  <i class="fab fa-docker" title="Docker"></i>
+  <i class="fas fa-cloud" title="Cloud Computing"></i>
+  <i class="fas fa-code-branch" title="Git & CI/CD"></i>
+  <i class="fas fa-shield-alt" title="Security"></i>
+</div>
+
         Hello! I'm <span class="highlight">Tushar Upadhyay</span>, a passionate 
         <strong>DevOps engineer</strong> and <strong>cloud enthusiast</strong>.  
         I specialize in automating infrastructure, deploying scalable cloud 

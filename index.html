@@ -70,17 +70,13 @@
   font-size: 1.5rem;
   color: #ffffff;
   margin-top: 10px;
-  animation: fadeInOut 3s infinite;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
   text-align: center;
   min-height: 30px; /* prevents layout shift */
 }
-
-@keyframes fadeInOut {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  40% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 0; }
+.rotating-text.show {
+  opacity: 1;
 }
 
     /* About Section */
@@ -240,13 +236,18 @@
   const rotatingText = document.querySelector(".rotating-text");
 
   function updateText() {
-    rotatingText.textContent = roles[index];
-    index = (index + 1) % roles.length;
+    rotatingText.classList.remove("show"); // fade out
+    setTimeout(() => {
+      rotatingText.textContent = roles[index];
+      rotatingText.classList.add("show"); // fade in
+      index = (index + 1) % roles.length;
+    }, 500); // wait half a second before showing next
   }
 
   updateText(); // show first one immediately
-  setInterval(updateText, 6000); // change every 3s
+  setInterval(updateText, 6000); // every 6s
 </script>
+
 
 <script>
   const text = "Building scalable, automated, and reliable cloud solutions.";

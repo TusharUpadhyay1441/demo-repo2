@@ -183,6 +183,32 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
+.skill {
+  margin-bottom:15px;
+}
+
+.skill p {
+  margin:0 0 5px 0;
+  color:white;
+  font-weight:bold;
+}
+
+.skill-bar-bg {
+  width:100%;
+  background:#444;
+  height:20px;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.skill-bar-fill {
+  width:0;
+  height:100%;
+  background:#994ECC;
+  border-radius:10px;
+  transition: width 2s ease-in-out;
+}
+
 /* Contact Section */
 #contact {
   padding: 120px 20px; /* More spacing around the section */
@@ -316,6 +342,41 @@
       <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" alt="Grafana"><span>Grafana</span></div>
     </div>
   </section>
+<!-- Expand Button -->
+<button id="expandSkills" style="padding:10px 20px; font-size:1rem; border:none; border-radius:8px; background:#994ECC; color:white; cursor:pointer; margin-bottom:20px;">
+  Expand
+</button>
+
+<!-- Skill Bars (Hidden by default) -->
+<div id="skillBars" style="max-width:600px; margin:auto; display:none; text-align:left;">
+  <div class="skill">
+    <p>Terraform</p>
+    <div class="skill-bar-bg">
+      <div class="skill-bar-fill" data-level="90%"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <p>Docker</p>
+    <div class="skill-bar-bg">
+      <div class="skill-bar-fill" data-level="85%"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <p>AWS</p>
+    <div class="skill-bar-bg">
+      <div class="skill-bar-fill" data-level="80%"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <p>Linux</p>
+    <div class="skill-bar-bg">
+      <div class="skill-bar-fill" data-level="75%"></div>
+    </div>
+  </div>
+</div>
 
 <section id="projects" style="padding:50px 0;">
   <div class="container" style="max-width:1200px; margin:auto; text-align:center; margin-bottom:1px;">
@@ -526,6 +587,29 @@
       prevEl: '.swiper-button-prev',
     },
   });
+</script>
+
+<script>
+const expandBtn = document.getElementById('expandSkills');
+const skillBars = document.getElementById('skillBars');
+const fills = document.querySelectorAll('.skill-bar-fill');
+
+expandBtn.addEventListener('click', () => {
+  if(skillBars.style.display === 'none') {
+    skillBars.style.display = 'block';
+    fills.forEach(fill => {
+      const level = fill.getAttribute('data-level');
+      setTimeout(() => {
+        fill.style.width = level;
+      }, 100);
+    });
+    expandBtn.textContent = 'Collapse';
+  } else {
+    skillBars.style.display = 'none';
+    fills.forEach(fill => fill.style.width = '0');
+    expandBtn.textContent = 'Expand';
+  }
+});
 </script>
 
 </body>

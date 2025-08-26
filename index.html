@@ -56,6 +56,23 @@
     #home h2 { font-size: 2.8rem; color: #fff; margin-bottom: 20px; }
     #home p  { font-size: 1.3rem; color: #ddd; }
 
+.rotating-text {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-top: 10px;
+  animation: fadeInOut 3s infinite;
+  text-align: center;
+  min-height: 30px; /* prevents layout shift */
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  40% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
     /* About Section */
     #about h2 { font-size: 2.5rem; margin-bottom: 20px; }
     #about p  { max-width: 700px; color: #ddd; line-height: 1.6; }
@@ -116,6 +133,7 @@
   <!-- Home Section -->
   <section id="home">
     <h1>Tushar Upadhyay</h1>
+    <h2 class="rotating-text"></h2>
     <h2>DevOps Enthusiast · Cloud Learner</h2>
     <p>Building scalable, automated, and reliable cloud solutions.</p>
   </section>
@@ -201,5 +219,25 @@
       targets.forEach(el => io.observe(el));
     });
   </script>
+
+<script>
+  const roles = [
+    "DevOps Enthusiast",
+    "Cloud & Automation Learner",
+    "Aspiring DevOps Engineer"
+  ];
+
+  let index = 0;
+  const rotatingText = document.querySelector(".rotating-text");
+
+  function updateText() {
+    rotatingText.textContent = roles[index];
+    index = (index + 1) % roles.length;
+  }
+
+  updateText(); // show first one immediately
+  setInterval(updateText, 3000); // change every 3s
+</script>
+
 </body>
 </html>

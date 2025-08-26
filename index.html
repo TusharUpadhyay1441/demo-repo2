@@ -56,6 +56,16 @@
     #home h2 { font-size: 2.8rem; color: #fff; margin-bottom: 20px; }
     #home p  { font-size: 1.3rem; color: #ddd; }
 
+#tagline {
+  color: #ffffff; /* White text */
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-weight: 400;
+  border-right: 2px solid #ffffff; /* cursor effect */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .rotating-text {
   font-size: 1.5rem;
   color: #ffffff;
@@ -134,7 +144,7 @@
   <section id="home">
     <h1>Tushar Upadhyay</h1>
     <h2 class="rotating-text"></h2>
-    <p>Building scalable, automated, and reliable cloud solutions.</p>
+    <p id="tagline"></p>
   </section>
 
   <!-- About Section -->
@@ -236,6 +246,24 @@
 
   updateText(); // show first one immediately
   setInterval(updateText, 6000); // change every 3s
+</script>
+
+<script>
+  const text = "Building scalable, automated, and reliable cloud solutions.";
+  let i = 0;
+  const speed = 100; // typing speed (ms per letter)
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("tagline").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    } else {
+      document.getElementById("tagline").style.borderRight = "none"; // remove cursor after typing
+    }
+  }
+
+  window.onload = typeWriter;
 </script>
 
 </body>

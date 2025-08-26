@@ -68,7 +68,6 @@
 
 .rotating-text {
   font-size: 1.5rem;
-  color: #c54b8c;
   margin-top: 10px;
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -240,16 +239,25 @@
 
   let index = 0;
   const rotatingText = document.querySelector(".rotating-text");
+const roles = [
+  { text: "DevOps Enthusiast", color: "#ffffff" },
+  { text: "Cloud & Automation Learner", color: "#ffffff" },
+  { text: "Aspiring DevOps Engineer", color: "#c54b8c" }
+];
 
-  function updateText() {
-    rotatingText.classList.remove("show"); // fade out
-    setTimeout(() => {
-      rotatingText.textContent = roles[index];
-      rotatingText.classList.add("show"); // fade in
-      index = (index + 1) % roles.length;
-    }, 500); // wait half a second before showing next
-  }
+let index = 0;
+function updateText() {
+  rotatingText.classList.remove("show"); // fade out
+  setTimeout(() => {
+    rotatingText.textContent = roles[index].text;
+    rotatingText.style.color = roles[index].color; // ✅ color applied
+    rotatingText.classList.add("show"); // fade in
+    index = (index + 1) % roles.length;
+  }, 500);
+}
 
+setInterval(updateText, 6000);
+updateText();
   updateText(); // show first one immediately
   setInterval(updateText, 6000); // every 6s
 </script>

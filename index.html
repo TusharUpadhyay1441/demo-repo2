@@ -76,14 +76,20 @@
   font-weight: bold;
 }
 
-/* Glow effect + gradient text */
+/* Gradient color with a *soft* glow */
 .rotating-text span {
   background: linear-gradient(90deg, #994ECC, #3E187A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 
-               0 0 15px rgba(255, 255, 255, 0.4);
+
+  /* Subtle glow, not too strong */
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
 }
+
+.rotating-text.show {
+  opacity: 1;
+}
+
 
 .rotating-text.show {
   opacity: 1;

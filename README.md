@@ -1,11 +1,7 @@
 # DEMO 2
 
-Some text maybe.
+This is my demo repo.
 
 ## Subheader
 
-Lets try this also.
-
-Lets try this as well if its get updated or not
-
-Let's check this update.
+i will just push random updates here until i find the perfection.

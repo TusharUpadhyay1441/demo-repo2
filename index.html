@@ -70,19 +70,19 @@
   display: none;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #c54b8c; /* Your color code */
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); /* subtle glow */
+  color: #c54b8c; /* Text color */
 }
 
-
-.rotating-text.show {
-  opacity: 1;
+.rotating-text span.active {
+  display: inline-block;
+  animation: fadeIn 1s ease-in-out;
 }
 
-
-.rotating-text.show {
-  opacity: 1;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
 
     /* About Section */
     #about h2 { font-size: 2.5rem; margin-bottom: 20px; }

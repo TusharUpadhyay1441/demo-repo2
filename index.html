@@ -348,36 +348,33 @@
   </button>
 </div>
 
-<!-- Skill Bars (Hidden by default) -->
-<div id="skillBars" style="max-width:600px; margin:center display:none; text-align:left;">
-  <div class="skill">
-    <p>Terraform</p>
-    <div class="skill-bar-bg">
-      <div class="skill-bar-fill" data-level="90%"></div>
-    </div>
+<!-- Skill Bars Container -->
+<div id="skillBarsContainer" style="display:none; text-align:center; margin-top:20px;">
+  <div class="skill-bar" style="width:300px; margin:10px auto; background:#ddd; border-radius:10px;">
+    <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
   </div>
-
-  <div class="skill">
-    <p>Docker</p>
-    <div class="skill-bar-bg">
-      <div class="skill-bar-fill" data-level="85%"></div>
-    </div>
+  <div class="skill-bar" style="width:300px; margin:10px auto; background:#ddd; border-radius:10px;">
+    <div class="skill-level" style="width:0%; height:20px; background:#994ECC; border-radius:10px;"></div>
   </div>
-
-  <div class="skill">
-    <p>AWS</p>
-    <div class="skill-bar-bg">
-      <div class="skill-bar-fill" data-level="80%"></div>
-    </div>
-  </div>
-
-  <div class="skill">
-    <p>Linux</p>
-    <div class="skill-bar-bg">
-      <div class="skill-bar-fill" data-level="75%"></div>
-    </div>
-  </div>
+  <!-- Add more skill bars as needed -->
 </div>
+
+<!-- JS to animate bars -->
+<script>
+document.getElementById('expandSkills').addEventListener('click', function() {
+  const container = document.getElementById('skillBarsContainer');
+  container.style.display = 'block';
+  const bars = container.querySelectorAll('.skill-level');
+  bars.forEach((bar, index) => {
+    let width = 0;
+    const level = [90, 80, 70][index]; // Change to your skill levels
+    const interval = setInterval(() => {
+      if (width >= level) clearInterval(interval);
+      else bar.style.width = width++ + '%';
+    }, 10);
+  });
+});
+</script>
 
 <section id="projects" style="padding:50px 0;">
   <div class="container" style="max-width:1200px; margin:auto; text-align:center; margin-bottom:1px;">

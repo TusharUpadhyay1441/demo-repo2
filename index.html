@@ -68,13 +68,23 @@
 
 .rotating-text {
   font-size: 1.5rem;
-  color: #ffffff;
   margin-top: 10px;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   text-align: center;
   min-height: 30px; /* prevents layout shift */
+  font-weight: bold;
 }
+
+/* Glow effect + gradient text */
+.rotating-text span {
+  background: linear-gradient(90deg, #994ECC, #3E187A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 
+               0 0 15px rgba(255, 255, 255, 0.4);
+}
+
 .rotating-text.show {
   opacity: 1;
 }
@@ -236,13 +246,14 @@
   const rotatingText = document.querySelector(".rotating-text");
 
   function updateText() {
-    rotatingText.classList.remove("show"); // fade out
-    setTimeout(() => {
-      rotatingText.textContent = roles[index];
-      rotatingText.classList.add("show"); // fade in
-      index = (index + 1) % roles.length;
-    }, 500); // wait half a second before showing next
-  }
+  rotatingText.classList.remove("show"); // fade out
+  setTimeout(() => {
+    rotatingText.innerHTML = `<span>${roles[index]}</span>`; // ✅ wrap in span
+    rotatingText.classList.add("show"); // fade in
+    index = (index + 1) % roles.length;
+  }, 500);
+}
+
 
   updateText(); // show first one immediately
   setInterval(updateText, 6000); // every 6s

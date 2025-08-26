@@ -178,45 +178,31 @@
     .skill-item span { color: #fff; font-size: 1.1rem; font-weight: 500; margin-top: 10px; }
 
 /* Contact Section */
-.contact {
-  text-align: center;
-  padding: 80px 20px;
-  color: white;  /* keep text white so it shows */
-}
-
-.contact h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.contact p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #ccc;
-}
-
 .contact-links {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 60px;
   flex-wrap: wrap;
 }
 
-.contact-links a {
-  font-size: 1.2rem;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.contact-item h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #fff;
 }
 
-.contact-links a i {
-  margin-right: 8px;
-  font-size: 1.5rem;
+.contact-img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
 }
 
-.contact-links a:hover {
-  color: #c54b8c; /* highlight color on hover */
+.contact-img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px #fff);
 }
+
 
 
     /* Footer */
@@ -311,25 +297,38 @@
 <!-- Contact Section -->
 <section id="contact" class="contact">
   <h2>Contact Me</h2>
-  <p>Feel free to reach out through the platforms below:</p>
+  <p>Feel free to connect with me through any platform below</p>
 
   <div class="contact-links">
-    <!-- Gmail -->
-    <a href="mailto:yourmail@gmail.com" target="_blank">
-      <i class="fa-solid fa-envelope"></i> Gmail
-    </a>
-
     <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/your-profile" target="_blank">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
+    <div class="contact-item">
+      <h3>LinkedIn</h3>
+      <a href="https://www.linkedin.com/in/YOUR-USERNAME" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" 
+             alt="LinkedIn" class="contact-img">
+      </a>
+    </div>
 
     <!-- GitHub -->
-    <a href="https://github.com/your-username" target="_blank">
-      <i class="fa-brands fa-github"></i> GitHub
-    </a>
+    <div class="contact-item">
+      <h3>GitHub</h3>
+      <a href="https://github.com/YOUR-USERNAME" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" 
+             alt="GitHub" class="contact-img">
+      </a>
+    </div>
+
+    <!-- Gmail -->
+    <div class="contact-item">
+      <h3>Gmail</h3>
+      <a href="mailto:yourmail@gmail.com">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" 
+             alt="Gmail" class="contact-img">
+      </a>
+    </div>
   </div>
 </section>
+
 
 
   <!-- Footer -->

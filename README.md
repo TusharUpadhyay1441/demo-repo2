@@ -7,3 +7,5 @@ This is my demo repo.
 i will just push random updates here until i find the perfection.
 
 trying something new from today 
+
+This is from new pc trying if everything is working or not
